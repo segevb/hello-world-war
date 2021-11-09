@@ -1,4 +1,3 @@
-FROM ubuntu:18.04
-MAINTAINER Segev Bar-On
-RUN apt-get update
-COPY *.war /warFile/.war
+FROM tomcat
+COPY /target/*.war /usr/local/tomcat/webapps/war_file/
+EXPOSE 8080
