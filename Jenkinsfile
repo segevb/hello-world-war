@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git(url: 'git@github.com:segevb/hello-world-war.git', branch: 'dev')
+        git(url: 'https://github.com/segevb/hello-world-war.git', branch: 'dev')
       }
     }
 
