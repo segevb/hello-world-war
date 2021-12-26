@@ -10,8 +10,7 @@ pipeline {
     stage('Build Maven war') {
       steps {
         sh '''mvn compile
-
-'''
+mvn clean package'''
       }
     }
 
