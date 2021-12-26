@@ -14,7 +14,7 @@ mvn clean package'''
       }
     }
 
-    stage('Sonarqube - code analysis') {
+    stage('Sonarcloud - code analysis') {
       steps {
         sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=segevb_hello-world-war'
       }
