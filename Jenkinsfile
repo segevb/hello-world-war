@@ -35,16 +35,14 @@ docker push 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
     }
 
   }
-    post {
-     success {
-        slackSend(message: "Build deployed successfully - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'my_notifier', color: '#00FF00')
-        }
-
-     failure {
-          slackSend(message: " Build failed - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'my_notifier', color: '#FF0000')
-        }
+  post {
+    success {
+      slackSend(message: "Build deployed successfully - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'my_notifier', color: '#00FF00')
     }
-  }
 
-  
-  
+    failure {
+      slackSend(message: " Build failed - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'my_notifier', color: '#FF0000')
+    }
+
+  }
+}
