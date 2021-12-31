@@ -20,5 +20,11 @@ mvn clean package'''
       }
     }
 
+    stage('Docker build & Tag') {
+      steps {
+        sh 'sudo docker build -t hello-world:$BUILD_ID .'
+      }
+    }
+
   }
 }
