@@ -22,7 +22,7 @@ mvn clean package'''
 
     stage('Docker build & Tag') {
       steps {
-        sh 'echo $USER'
+        sh 'docker build -t hello-world:$BUILD_ID .'
       }
     }
 
