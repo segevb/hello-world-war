@@ -25,12 +25,16 @@ mvn clean package'''
         sh 'docker build -t hello-world:$BUILD_ID .'
       }
     }
+   
 
     stage('Docker tag & Push to Nexus') {
       steps {
-        sh '''docker tag hello-world:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
-docker push 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
-'''
+            
+           withDockerRegistry(credentialsId: 'nexusConnection', url: 'http://127.0.0.1:8123/repository/docker-hosted/') {
+       
+             sh '''docker tag hello-world:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
+              docker push 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
+              '''
       }
     }
 
