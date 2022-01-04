@@ -39,6 +39,7 @@ mvn clean package'''
     }
 
   }
+  }
   post {
     success {
       slackSend(message: "Build deployed successfully - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'my_notifier', color: '#00FF00')
@@ -50,3 +51,6 @@ mvn clean package'''
 
   }
 }
+  
+
+  
