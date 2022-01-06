@@ -2,7 +2,7 @@ pipeline {
   agent any
   
   triggers {
-	//Query repository every minute
+	//Query repository every minute.
 pollSCM('* * * * *')
 }
   
