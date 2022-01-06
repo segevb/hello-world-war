@@ -1,5 +1,11 @@
 pipeline {
   agent any
+  
+  triggers {
+	//Query repository weekdays every four hours starting at minute 0
+pollSCM('0 */4 * * 1-5')
+}
+  
   stages {
     stage('Checkout Code') {
       steps {
