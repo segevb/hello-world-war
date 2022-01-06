@@ -37,12 +37,6 @@ mvn clean package'''
       }
     }
 
-    stage('Notify Slack') {
-      steps {
-        sh '...'
-      }
-    }
-
   }
   post {
     success {
